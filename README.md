@@ -38,7 +38,7 @@ $ hr
 # ---------------------------------------------- #
 ```
 
-Provide border characters to use as the rule as a comment, e.g. in Java:
+Provide border characters and a title to print a comment, e.g. for Java:
 
 ```
 $ hr -l 40 -b "/*" "ToDo: fix bug"
