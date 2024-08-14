@@ -30,4 +30,22 @@ You can now run the app using `hr`.
 
 ## Usage
 
-tbc
+Use `hr` without arguments to print an untitled horizontal rule:
+
+```
+$ hr
+
+# ---------------------------------------------- #
+```
+
+Provide border characters to use as the rule as a comment, e.g. in Java:
+
+```
+$ hr -l 40 -b "/*" "ToDo: fix bug"
+
+/* ---------- ToDo: fix bug ---------- */
+```
+
+Note that the border characters are reversed on the right side.
+
+See `hr --help` for more options.

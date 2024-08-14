@@ -3,10 +3,10 @@ from typing import Annotated
 import typer
 
 import hr
+import hr.lib
 
 app = typer.Typer(
     add_completion=False,
-    no_args_is_help=True,
     context_settings={"terminal_width": 100},
 )
 
@@ -14,6 +14,33 @@ app = typer.Typer(
 @app.callback(invoke_without_command=True)
 def callback(
     *,
+    title: Annotated[str, typer.Argument(
+        help="An optional title."
+    )] = "",
+    length: Annotated[int, typer.Option(
+        "-l", "--length",
+        help="Minimum character length.",
+    )] = 100,
+    border: Annotated[str, typer.Option(
+        "-b", "--border",
+        help="Character(s) to use for outer borders.",
+    )] = "#",
+    filler: Annotated[str, typer.Option(
+        "-f", "--filler",
+        help="Character to use for inner fillers.",
+    )] = "-",
+    as_paragraph: Annotated[bool, typer.Option(
+        "-p", "--paragraph",
+        help="Prepend 'BEGIN' and 'END' before title.",
+    )] = False,
+    upper: Annotated[bool, typer.Option(
+        "-u", "--upper",
+        help="Convert title to uppercase.",
+    )] = False,
+    no_newline: Annotated[bool, typer.Option(
+        "-n", "--no-newline",
+        help="Do not print a new-line character at the end.",
+    )] = False,
     show_version: Annotated[bool, typer.Option(
         "--version",
         help="Show version and exit.",
@@ -25,15 +52,29 @@ def callback(
     Print horizontal rules.
     """
     if show_version:
-        show_package_version()
+        print(hr.__version__)
         return None
-    return None
 
+    if upper:
+        title = title.upper()
 
-@app.command("version")
-def show_package_version() -> None:
-    """
-    Show the installed version of this package.
-    """
-    print(hr.__version__)
+    titles: list[str] = []
+    if as_paragraph:
+        if title:
+            titles.append(f"BEGIN {title}")
+            titles.append(f"END {title}")
+        else:
+            titles.append("BEGIN")
+            titles.append("END")
+    else:
+        titles.append(title)
+
+    for title in titles:
+        horizontal_rule = hr.lib.get_horizontal_rule(
+            title,
+            length=length,
+            border=border,
+            filler=filler[:1],
+        )
+        print(horizontal_rule, end="" if no_newline else "\n")
     return None
