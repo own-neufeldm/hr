@@ -60,12 +60,12 @@ def callback(
 
     titles: list[str] = []
     if as_paragraph:
-        if title:
-            titles.append(f"BEGIN {title}")
-            titles.append(f"END {title}")
-        else:
+        if not title:
             titles.append("BEGIN")
             titles.append("END")
+        else:
+            titles.append(f"BEGIN {title}")
+            titles.append(f"END {title}")
     else:
         titles.append(title)
 
@@ -74,7 +74,7 @@ def callback(
             title,
             length=length,
             border=border,
-            filler=filler[:1],
+            filler=filler[0],
         )
         print(horizontal_rule, end="" if no_newline else "\n")
     return None
