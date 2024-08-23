@@ -20,7 +20,7 @@ def callback(
     length: Annotated[int, typer.Option(
         "-l", "--length",
         help="Minimum character length.",
-    )] = 100,
+    )] = 50,
     border: Annotated[str, typer.Option(
         "-b", "--border",
         help="Character(s) to use for outer borders.",
