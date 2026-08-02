@@ -1,0 +1,22 @@
+= hr4c
+:toc: auto
+
+Prints horizontal rules. C port of https://github.com/own-neufeldm/hr.
+
+== Setup
+
+Compile the source code to a directory in PATH, e.g.:
+
+[source, shell]
+----
+gcc $(pwd)/src/main.c $(pwd)/src/lib.c -o ~/bin/hr4c
+----
+
+== Usage
+
+Please refer to the script's usage by running:
+
+[source, shell]
+----
+hr4c -h
+----

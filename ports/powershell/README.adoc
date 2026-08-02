@@ -1,0 +1,29 @@
+= hr4ps
+:toc: auto
+
+Prints horizontal rules. PowerShell port of port of https://github.com/own-neufeldm/hr.
+
+== Setup
+
+Install PowerShell
+
+[source, shell]
+----
+brew install powershell
+----
+
+Wrap the PowerShell call in a helper script, e.g.:
+
+[source, shell]
+----
+echo "$(pwd)/Source/hr4ps.ps1 \"\$@\"" > ~/bin/hr4ps
+----
+
+== Usage
+
+Please refer to the script's usage by running:
+
+[source, shell]
+----
+hr4ps --help
+----
