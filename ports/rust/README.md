@@ -17,10 +17,10 @@ Please refer to the official vendor documentation for setting up these requireme
 Install the app using `cargo install`, e.g. directly from GitHub:
 
 ```
-$ cargo install --git https://github.com/own-neufeldm/hr4rs
+$ cargo install --git https://github.com/own-neufeldm/hr/ports/rust
 
 # ...
-Installed package `hr4rs v1.0.0 (https://github.com/own-neufeldm/hr4rs#14793fa3)` (executable `hr4rs`)
+Installed package `hr4rs v1.0.0 (https://github.com/own-neufeldm/hr/ports/rust#12345678)` (executable `hr4rs`)
 ```
 
 You can now run the app using `hr4rs`.

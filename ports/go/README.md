@@ -17,9 +17,9 @@ Please refer to the official vendor documentation for setting up these requireme
 Install the app using `go install`, e.g. directly from GitHub:
 
 ```
-$ go install github.com/own-neufeldm/hr4go@latest
+$ go install github.com/own-neufeldm/hr/ports/go@latest
 
-go: downloading github.com/own-neufeldm/hr4go v1.0.0
+go: downloading github.com/own-neufeldm/hr/ports/go
 ```
 
 You can now run the app using `hr4go`.
